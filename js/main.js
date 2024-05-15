@@ -18,7 +18,7 @@ const agregaProducto = document.createElement('div');
 
 agregaProducto.innerHTML =  ` <div class="item">
 <div class="titulo-item">Perro Callejero - Malbec</div>
-<div class="box-imagen"> <img src="./imagenes/1.png" alt="" class="img-item"> </div>
+<div> <img src="./imagenes/1.png" alt="" class="img-item"> </div>
 <div class="precio-item"> $6.240 </div>
 <button class="boton-item">Agregar al Carrito</button>
 </div> `;
