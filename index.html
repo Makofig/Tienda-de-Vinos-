@@ -24,7 +24,6 @@
         position: relative;
         background-color: rgb(90, 45, 27, 0.7);
         width: 500px;
-        top: 40px;
         /*backdrop-filter: blur(2px);*/ /*Para transparentar el fondo*/
         box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
         border-radius: 10px;
@@ -41,11 +40,12 @@
             ;
         gap: 0.5rem;    
     }
-    input[type="text"]{
+    input[type="text"],
+         [type="email"]{
         padding: 0.4rem;
     }
     form select{
-        width: 30%;
+        width: 60%;
         padding: 0.4rem;
     }
     form textarea{
@@ -72,8 +72,8 @@
     <nav>
         <h1>DON VINOS</h1>
         <ul>
-            <li><a href="#galeria">Galeria</a></li> 
-            <li><a href="#tienda">Tienda</a></li>       
+            <li><a href="#galeria">Galería</a></li> 
+            <li><a href="#tienda">Tíenda</a></li>       
             <li><a href="#formulario">Contactanos</a></li>
             <li><a href="#contacto">Redes</a></li>
         </ul>
@@ -108,22 +108,27 @@
                     <label for="name">Nombre</label>
                     <label for="lastname">Apellido</label>
 
-                    <input type="text" name="name" id="" placeholder="Nombre" required />
-                    <input type="text" name="lastname" id="" placeholder="Apellido" required />
+                    <input type="text" name="name" id="name" placeholder="Nombre" required />
+                    <input type="text" name="lastname" id="lastname" placeholder="Apellido" required />
                 </div>
                 
-                <label for="sexo">Sexo</label>
-                <p>
-                    Masculino <input type="radio" name="sexo" value="masculino">
-                    Femenino <input type="radio" name="sexo" value="femenino">
-                </p>
-                
-                <label for="location">Provincia: </label>
-                <select name="location" id="" required>
-                    <option value="chaco">Chaco</option>
-                    <option value="formosa">Formosa</option>
-                    <option value="corrientes">Corrientes</option>
-                </select>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" placeholder="ejemplo@ejemplo.com">
+                <div>
+                    <label for="sexo">Sexo</label>
+                    <label for="location">Provincia</label>
+
+                    <p>
+                        Masculino <input type="radio" name="sexo" value="masculino">
+                        Femenino <input type="radio" name="sexo" value="femenino">
+                    </p>
+
+                    <select name="location" id="" required>
+                        <option value="chaco">Chaco</option>
+                        <option value="formosa">Formosa</option>
+                        <option value="corrientes">Corrientes</option>
+                    </select>
+                </div>               
 
                 <label for="img">Imagen</label>
                 <input type="file" name="img" />
@@ -163,5 +168,59 @@
     
     </footer>
     <script src="./js/main.js"></script>
+    <script>
+        /* Validación del email */
+        const email = document.querySelector("#email"); 
+        let validarEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/; 
+        email.addEventListener('change', (event) =>{
+            console.log(event.target.value);
+            if (validarEmail.test(event.target.value)){
+                /*alert("el email es valido");*/ 
+                event.target.style.borderColor = 'green';
+                event.target.style.color = 'green'; 
+                event.target.style.border = '2px solid';    
+            }else{
+                /*alert("el email no es valido");*/
+                event.target.style.borderColor = 'red'; 
+                event.target.style.color = 'red'; 
+                event.target.style.border = '2px solid';  
+            }
+        })
+        /* Validación del nombre y apellido */
+        const name = document.querySelector("#name");
+        const lastname = document.querySelector("#lastname"); 
+   
+        let validarText = /^([A-Za-zÑñÁáÉéÍíÓóÚú]+['\-]{0,1}[A-Za-zÑñÁáÉéÍíÓóÚú]+)(\s+([A-Za-zÑñÁáÉéÍíÓóÚú]+['\-]{0,1}[A-Za-zÑñÁáÉéÍíÓóÚú]+))*$/;  
+
+        name.addEventListener('change', (event) =>{
+            console.log(event.target.value);
+            if (validarText.test(event.target.value)){
+                /*alert("el email es valido");*/ 
+                event.target.style.borderColor = 'green';
+                event.target.style.color = 'green'; 
+                event.target.style.border = '2px solid';    
+            }else{
+                /*alert("el email no es valido");*/
+                event.target.style.borderColor = 'red'; 
+                event.target.style.color = 'red'; 
+                event.target.style.border = '2px solid';  
+            }
+        })
+
+        lastname.addEventListener('change', (event) =>{
+            console.log(event.target.value);
+            if (validarText.test(event.target.value)){
+                /*alert("el email es valido");*/ 
+                event.target.style.borderColor = 'green';
+                event.target.style.color = 'green'; 
+                event.target.style.border = '2px solid';    
+            }else{
+                /*alert("el email no es valido");*/
+                event.target.style.borderColor = 'red'; 
+                event.target.style.color = 'red'; 
+                event.target.style.border = '2px solid';  
+            }
+        })
+    </script>
 </body>
 </html>
