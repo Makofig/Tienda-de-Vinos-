@@ -16,7 +16,7 @@ nav{
     height: 80px;
     justify-content: space-between;
     align-items: center;
-    opacity: 65%;
+    opacity: 72%;
     padding: 0.2rem 0;
     background-color: beige;
     transition: all 0.3s ease;
@@ -27,7 +27,7 @@ nav ul{
     list-style: none;
     display: flex;
     gap: 8rem;
-    font-size: 18px; 
+    font-size: 20px; 
 }
 nav ul li{
     cursor: pointer; 
@@ -84,6 +84,7 @@ main section {
 /* ESTILOS DE LA TIENDA */
 .contenedor {
     display: grid; 
+    width: 100vw;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     justify-items: center;
@@ -186,7 +187,9 @@ main section form > div{
 input[type="text"],
      [type="email"]{
     padding: 0.4rem;
+    border: none;
 }
+
 form select{
     width: 70%;
     padding: 0.4rem;
@@ -294,16 +297,13 @@ input[type="submit"]{
 .carrito {
     border: 1px solid #666;
     width: 35%;
-    margin-top: 30px;
-    margin-left: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
+    right: 20px;
+    top: 85px;
     overflow: hidden;
-    margin-bottom: auto;
-    position: sticky !important;
-    top: 0;
+    position: absolute;
     transition: .3s;
 }
-
 
 .carrito .header-carrito{
     background-color: rgb(185, 133, 98);
@@ -424,7 +424,7 @@ input[type="submit"]{
 .carrito-total .btn-pagar:hover{
     scale: 1.05;
 }
-
+/*
 @media screen and (max-width:850px) {
     .pre-contenedor{
         display: block;
@@ -437,4 +437,4 @@ input[type="submit"]{
         margin-left: 10px;
     }
 }
-
+*/

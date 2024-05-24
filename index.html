@@ -45,6 +45,204 @@
         aspect-ratio: 3/2;
         height: 400px;
     }
+
+    /* Medias Queries */
+    @media screen and (max-width: 1200px) {
+        nav{
+            display: flex;
+            position: fixed;
+            width: 100vw;
+            height: 80px;
+            align-content: center;
+            justify-content: space-between;
+
+        }
+        nav ul{
+            list-style: none;
+            gap: 2rem;
+            font-size: 20px;
+        }
+
+        .contenedor{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            height: 90vh;
+            justify-content: center;
+            padding: 5px 5px 20px 5px;
+            overflow: scroll;
+        }
+
+        .contenedor  .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            height: 390px;
+            border: 1px solid #666;
+            border-radius: 30px;
+            padding: 10px;
+            background-color:white ;
+            cursor: pointer;
+        }
+    }
+    @media screen and (max-width: 900px ){
+        nav{
+            display: flex;
+            position: fixed;
+            width: 100vw;
+            height: 80px;
+            align-content: center;
+            justify-content: space-between;
+        }
+        nav ul{
+            list-style: none;
+            gap: 2rem;
+            font-size: 16px;
+        }
+
+        .contenedor{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            height: 90vh;
+            justify-content: center;
+            padding: 5px;
+            overflow: scroll;
+        }
+
+        .contenedor  .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            height: 390px;
+            border: 1px solid #666;
+            border-radius: 30px;
+            padding: 10px;
+            background-color:white ;
+            cursor: pointer;
+        }
+
+        main section form{
+            display: flex;
+            flex-direction: column;
+            font-size: 1rem;
+            width: 25rem;
+            height: 40rem;
+            gap: 0.8rem 0;
+        }
+
+        main section form > div{
+            display: flex;
+            flex-direction: column;   
+        }
+
+        input[type="text"],
+            [type="email"]{
+            padding: 0.4rem;
+            width: 350px;
+            border: none;
+        }     
+    }
+
+    @media screen and (max-width: 428px ){
+        nav{
+            display: flex;
+            position: fixed;
+            width: 100vw;
+            height: 80px;
+            align-content: center;
+            justify-content: space-between;
+        }
+        nav ul{
+            display: none;
+        }
+        .carrito {
+            width: 20rem;
+        } 
+        main section .info-vinos{
+            width: 428px;
+            height: 600px;
+            display: flex; 
+            flex-direction: column;
+            gap: 0 1.2rem; 
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgb(90, 45, 27, 0.7);
+        }
+        main section .info-vinos div{
+            display: flex;
+            justify-content: center;
+        }
+        .contenedor{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 5px;
+            height: 90vh;
+            justify-content: center;
+            padding: 5px;
+            overflow: scroll;
+        }
+
+        .contenedor  .item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+            height: 390px;
+            border: 1px solid #666;
+            border-radius: 30px;
+            padding: 10px;
+            background-color:white ;
+            cursor: pointer;
+        }
+        main section form{
+            display: flex;
+            font-size: 1.5rem;
+            max-width: 300px;
+            height: 400px;
+            gap: 1rem;
+        }
+
+        main section form > div{
+            display: flex;
+            flex-direction: column;   
+            gap: 1rem;
+        }
+
+        input[type="text"],
+            [type="email"]{
+            padding: 0.4rem;
+            width: 250px;
+            border: none;
+        } 
+
+        label {
+            display: none; 
+        }
+
+        input[type="submit"]{
+            width: 100px;
+            position: relative;
+            border:none;
+            background-color: rgb(185, 133, 98);
+            left: 100px;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .footer-marco {
+            background-color:  rgb(241, 177, 134);
+            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr;
+            height: 70vh;  
+        }
+    }
 </style>
 <body>
     <!--Barra de navegación(NAV) para el accedo de los elementos-->
@@ -57,11 +255,14 @@
             <li><a href="#contacto">Redes</a></li>
         </ul>
         <div class="menu-right">
-            <a>
+            <a id="tu-carrito">
                 <span class="material-symbols-outlined">
                     shopping_cart
-                </span>     
-            </a>
+                </span>
+                <span style="color:red; font-weight: bold;" class="productos-carrito">
+                    <!-- Se debe agregar un span para los elementos del carrito -->  
+                </span>             
+            </a>   
             <span class="precio">$0.0</span>
             <a>
                 <span class="material-symbols-outlined">
@@ -69,8 +270,24 @@
                 </span>
             </a>
         </div>
+        <!-- Sección deonde se muestra la vista del carro -->
+        <div class="carrito">
+            <div class="header-carrito"><h2>Tu carrito</h2></div>
+            <div class="carrito-items">
+            <!--Sección donde se muestran los elementos que se agrega en el script-->
+            </div> 
 
-    </nav>
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Tu Total</strong>
+                    <span class="carrito-precio-total">
+                        $120.000
+                    </span>
+                </div>
+                <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+            </div>
+        </div>
+    </nav>  
     <main>
         <!-- CONTENIDO PRINCIPAL DE LA PAGINA -->   
         <section id="galeria" >
@@ -94,12 +311,11 @@
         <section id="tienda" class="pre-contenedor">
             <div class="contenedor"></div>
           
-            <!--Sección donde se muestran los elementos que se agrega en el script-->
-            
+        <!-- 
             <div class="carrito">
                 <div class="header-carrito"><h2>Tu carrito</h2></div>
                 <div class="carrito-items">
-                <!--Sección donde se muestran los elementos que se agrega en el script-->
+                Sección donde se muestran los elementos que se agrega en el script
                 </div> 
         
                 <div class="carrito-total">
@@ -113,6 +329,7 @@
                 </div>
 
             </div>
+        -->
         </section>
              
         <section id="formulario">
