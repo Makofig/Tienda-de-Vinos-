@@ -1,7 +1,7 @@
 //import express from 'express'; 
 //import {database} from '../db/db.js';
 const express = require('express'); 
-const {obtenerProductos, crearProductos, verProducto, deleteProdcutos} = require('../controller/controllerProduct'); 
+const {obtenerProductos, crearProductos, updateProducto, verProducto, deleteProdcutos} = require('../controller/controllerProduct'); 
 //const db = require('../db/db');  
 const multer = require('multer');
 
@@ -22,6 +22,9 @@ const router = express.Router();
 
 /* mostrar todos los productos */
 router.get('/api/productos', obtenerProductos);
+
+/* actualizar productos */
+router.post('/api/productos/:id', upload.single('imagen'), updateProducto); 
 
 /* crear un producto y actualizar */ 
 router.post('/api/productos', upload.single('imagen'), crearProductos);

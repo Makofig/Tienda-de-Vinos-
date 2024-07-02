@@ -99,7 +99,7 @@
 <body>
     <div class="container">
         <nav class="sidebar">
-            <a href="http://localhost:5001/create">Agregar Producto</a>
+            <a href="./create">Agregar Producto</a>
         </nav>
         <main>
             <h1>LISTA DE VINOS </h1>
@@ -109,7 +109,7 @@
         </main>
     </div>  
     <script>
-        fetch('http://localhost:5001/api/productos')
+        fetch('/api/productos')
             .then(res => res.json())
             .then(data =>{
                 const content = document.querySelector('.list-product');   
@@ -125,8 +125,8 @@
                     <div class="precio-item">$${element.precio}</div>
                     <div style="color: green">${stock}</div> 
                     <button class="boton-item">Agregar al Carrito</button>
-                    <a href="http://localhost:5001/update.html?id=${element.id}" class="boton-item">Editar</a>
-                    <a href="http://localhost:5001/delete.html?id=${element.id}" class="boton-item">Eliminar</a>
+                    <a href="./update.html?id=${element.id}" class="boton-item">Editar</a>
+                    <a href="./delete.html?id=${element.id}" class="boton-item">Eliminar</a>
                      `;
                     content.appendChild(product); 
                 });

@@ -68,6 +68,10 @@ const crearProductos = async (req, res) => {
     console.log(req.body);
 }; 
 
+const updateProducto = async (req, res) => {
+    console.log(req.params.id); 
+}
+
 const verProducto = async (req, res)=>{
     const id = parseInt(req.params.id); 
     try {
@@ -104,6 +108,7 @@ const deleteProdcutos = async (req, res)=>{
 module.exports = {
     obtenerProductos,
     crearProductos,
+    updateProducto,
     verProducto, 
     deleteProdcutos
 }

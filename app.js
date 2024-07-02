@@ -1,10 +1,7 @@
-//import express from 'express'; 
-//import env from 'dotenv/config'; 
-//import {rutas} from './routes/movieRoutes.js'; 
 const express = require('express'); 
 require('dotenv').config();
 const productRutes = require('./routes/productRoutes'); 
-//const {pathname: root} = new URL('./', import.meta.url); 
+
 
 const app = express(); 
 

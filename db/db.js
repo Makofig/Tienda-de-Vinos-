@@ -1,5 +1,3 @@
-//import mysql from 'mysql2'; 
-//import env from 'dotenv/config';
 const {createPool} = require('mysql2/promise'); 
 require('dotenv').config();
 /*
@@ -20,11 +18,11 @@ connection.connect((err) =>{
 });
 */
 const pool = createPool({
-    host: 'localhost',
-    user: 'admin',
-    password: 'admin123456',
-    database: 'vinos',
-    port: '3308', 
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT, 
     waitForConnections: true,
     connectionLimit: 5
 });
