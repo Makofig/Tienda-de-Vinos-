@@ -6,16 +6,26 @@
     <title>Crear un nuevo Producto</title>
 </head>
 <style>
+    body{
+        background-image: url(../imagenes/Nuestros_vinos.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     main {
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        align-items: center;
+        color: white;
     }
-    
+    main h1{
+        color: white;
+    }
     main form{
         display: flex;
         flex-direction: column;
         width: 30%;
+        backdrop-filter: blur(10px);
         border: 1px solid #ccc;
         border-radius: 8px;
         padding: 0.8rem;

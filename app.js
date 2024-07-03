@@ -5,7 +5,9 @@ const productRutes = require('./routes/productRoutes');
 
 const app = express(); 
 
+/* Para acceder a la carpeta public */
 app.use(express.static('public')); 
+/* Permite tomar la información que lleve le formulario */
 app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
 

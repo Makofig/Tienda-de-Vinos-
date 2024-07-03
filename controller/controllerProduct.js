@@ -43,7 +43,12 @@ const crearProductos = async (req, res) => {
             ];
             const [rows] = await connection.query(sql, values); 
             connection.release();
-            res.send('Producto actualizado correctamente.'); 
+            /* Enviamos un json a la respuesta del servidor para poder manejarlo */
+            if (rows.affectedRows > 0){
+                res.json({success: true, message: 'Producto Actualizado Correctamente'});
+            } else{
+                res.status(404).json({success: false, message: 'Error la actualizar el producto'}); 
+            }
         }else{
             const sql = `
                 INSERT INTO productos (id_categoria, nombre, precio, descripcion, stock, imagen) 
@@ -63,7 +68,7 @@ const crearProductos = async (req, res) => {
         }
     }catch(err){
         console.error('Se produjo un error al intentar cargar el producto:', err); 
-        res.status(500).send('Error al intentar cargar el producto'); 
+        res.status(500).json({success: false, message: 'Error al intentar cargar el producto'}); 
     }
     console.log(req.body);
 }; 
