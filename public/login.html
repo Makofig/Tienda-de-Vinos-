@@ -36,11 +36,11 @@
                     </div>
                 </div>
                 
-                <form class="form-login" action="">
-                    <label for="name">Nombre de Usuario</label>
-                    <input type="text" name="name">
-                    <label for="contrasena">Contraseña</label>
-                    <input type="password" name="contrasena">
+                <form class="form-login" action="/api/login" method="POST">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required>
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" required>
                     <button class="boton-inicio-sesion">Iniciar Sesión</button>
                 </form>
                 <p>¿No tienes una cuenta? 
