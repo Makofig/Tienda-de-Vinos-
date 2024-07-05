@@ -9,6 +9,8 @@ const app = express();
 
 /* Para acceder a la carpeta public */
 app.use(express.static('public')); 
+/* Para acceder a la carpeta private */
+app.use('/private', express.static('private')); 
 /* Permite tomar la información que lleve le formulario */
 app.use(express.json());
 app.use(express.urlencoded({extended: false})); 
@@ -71,5 +73,4 @@ app.get('*', (req, res) => {
 const PORT = 5001;
 app.listen(PORT, ()=>{
     console.log(`Server in running on port ${PORT}`); 
-    console.log(process.env.DB_HOST, process.env.DB_USER);
 })

@@ -7,7 +7,7 @@ const obtenerProductos = async (req, res) =>{
         connection.release();
         res.json(rows);  
     }catch(err){
-        console.error('Hubo un error a lobtener los productos:', err); 
+        console.error('Hubo un error al obtener los productos:', err); 
     }
 }
 
@@ -64,7 +64,7 @@ const crearProductos = async (req, res) => {
             ];
             const [result] = await connection.query(sql, values); 
             connection.release();
-            res.send("Producto agregado");
+            res.json({success: true, message: 'Producto agregado correctamente'}); 
         }
     }catch(err){
         console.error('Se produjo un error al intentar cargar el producto:', err); 
