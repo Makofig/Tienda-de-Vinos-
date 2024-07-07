@@ -25,12 +25,12 @@ app.use('/', userRutes);
 const verificarToken = (req, res, next) =>{
     const secretkey = process.env.SECRET_KEY;
     const token = req.cookies.token;  
-    const decoded = jwt.verify(token, secretkey);
-    console.log(decoded);
     //const token_limpio = token.split(' ')[1];  
     if (!token){
         return res.status(401).send('Acceso denegado'); 
     }
+    const decoded = jwt.verify(token, secretkey);
+    console.log(decoded);
     try{
         const decoded = jwt.verify(token, secretkey);
         req.user = decoded; 
@@ -57,6 +57,11 @@ app.get('/delete', (req, res) => {
     //res.send('Editar producto');  
 })
 
+/* ruta para cerrar sesión */
+app.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/');
+});
 /* Acceder a la ruta privada */
 app.get('/admin', verificarToken,  (req, res) =>{
     if (req.user.role === 'admin') {

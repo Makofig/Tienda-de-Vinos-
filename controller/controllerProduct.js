@@ -47,7 +47,7 @@ const crearProductos = async (req, res) => {
             if (rows.affectedRows > 0){
                 res.json({success: true, message: 'Producto Actualizado Correctamente'});
             } else{
-                res.status(404).json({success: false, message: 'Error la actualizar el producto'}); 
+                res.status(404).json({success: false, message: 'Error al actualizar el producto'}); 
             }
         }else{
             const sql = `
